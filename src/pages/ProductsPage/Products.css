@@ -1,0 +1,17 @@
+.flexContainerNormalContainer
+{
+    display: flex;
+    gap:32px ;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flexContainerCarouselContainer
+{
+    display: flex;
+    gap:32px ;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
