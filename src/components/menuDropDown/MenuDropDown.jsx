@@ -1,14 +1,25 @@
 import { useEffect, useState, useRef } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logout } from "../../redux/slices/AuthSlice";
 
 function MenuDropDown() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false); 
   const dropdownRef = useRef(null);
+  const dispatch = useDispatch();
 
   const role = useSelector((state) => state?.auth?.data?.role);
+
+  const handleLoggedOut = async ()=>{
+         const response = await dispatch(logout())
+        if(response?.payload?.success)
+        {
+          setIsLoggedIn(false);
+          navigate("/auth/login"); 
+        }
+       }
 
   useEffect(() => {
     const loggedInStatus = JSON.parse(localStorage.getItem("isLoggedIn") || "false");
@@ -129,7 +140,16 @@ function MenuDropDown() {
             </Link>
           </li>
 
-
+          {
+            isLoggedIn && (<li className="py-1 pl-4">
+              <span
+                className="block hover:bg-gray-200 px-3 py-2 rounded-md"
+                onClick={handleLoggedOut}
+              >
+                 Logout
+              </span>
+            </li>)
+          }
            {!isLoggedIn && (
           <li className="py-1 pl-4">
               <Link
