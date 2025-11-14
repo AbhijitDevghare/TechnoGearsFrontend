@@ -66,6 +66,7 @@ function MenuDropDown() {
               Home
             </Link>
           </li>
+           {!isLoggedIn &&
           <li className="py-1 pl-4">
             <Link
               to="/profile"
@@ -75,6 +76,7 @@ function MenuDropDown() {
               Profile
             </Link>
           </li>
+}
           <li className="py-1 pl-4">
             <Link
               to="/products"
