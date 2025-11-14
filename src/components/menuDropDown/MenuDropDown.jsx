@@ -128,6 +128,17 @@ function MenuDropDown() {
           </li>
 
 
+           {!isLoggedIn && (
+          <li className="py-1 pl-4">
+              <Link
+                to="/auth/login"
+                className="block hover:bg-gray-200 px-3 py-2 rounded-md"
+                onClick={() => setIsOpen(false)}
+              >
+                 Login
+              </Link>
+            </li>
+          )}
 
           {!isLoggedIn && (
           <li className="py-1 pl-4">
@@ -140,6 +151,7 @@ function MenuDropDown() {
               </Link>
             </li>
           )}
+
 
           {isAdmin && (
           <li className="py-1 pl-4">
