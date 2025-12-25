@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const BASE_URL = process.env.BACKEND_URL || "https://techno-gears-backend.vercel.app/api/v1";
+const BASE_URL = "https://techno-gears-backend.vercel.app/api/v1";
 
 const axiosInstance=axios.create()
 

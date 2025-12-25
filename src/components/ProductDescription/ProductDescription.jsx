@@ -87,6 +87,7 @@ const settings = {
                   src={image.url} 
                   alt={`${product.name} ${index + 1}`} 
                   className="w-full h-auto rounded-md object-cover transform transition-transform duration-300 hover:scale-105" 
+                  loading="lazy"
                 />
               </div>
             ))}

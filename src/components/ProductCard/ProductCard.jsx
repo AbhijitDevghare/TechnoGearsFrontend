@@ -22,6 +22,7 @@ const ProductCard = ({ product }) => {
             src={product.images[0]?.url || 'placeholder.jpg'}
             alt={product.name}
             className="product-image cursor-pointer"
+            loading='lazy'
           />
         </Link>
         <button

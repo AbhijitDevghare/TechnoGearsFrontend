@@ -15,7 +15,6 @@ export const createAccount = createAsyncThunk("/auth/register", async (data) => 
         toast.promise(res, {
             loading: "Wait! creating your account",
             success: (data) => {
-                console.log("RETURN DATA : ",data)
                 return data?.data?.message;     // first data is basically a response
             },
             error: "Failed to create account"
@@ -90,7 +89,6 @@ export const logout = createAsyncThunk("/auth/logout", async () => {
 
 export const updateProfile = createAsyncThunk("/updateProfile", async (data) => {
     try {
-        console.log(data)   
         const res = axiosInstance.put("/user/profile", data);
         toast.promise(res, {    
             loading: "Wait... Updating the profile",
@@ -158,7 +156,6 @@ export const sendOtp = createAsyncThunk("/auth/sendOtp", async (data) => {
 export const verifyOtp = createAsyncThunk("/auth/verifyOtp", async (data) => {
     try {
         const res = axiosInstance.post("/user/auth/password/reset/verify-otp", data);
-        console.log(res)
         toast.promise(res, {
             loading: "Verifying OTP...",
             success: "Otp verification Successful",
@@ -180,7 +177,6 @@ const authSlice = createSlice({
     extraReducers: (builder) => {
         builder
         .addCase(createAccount.fulfilled, (state, action) => {
-            console.log(action)
             if(!action?.payload?.user)
                 return
             localStorage.setItem("data", JSON.stringify(action?.payload?.user));
@@ -191,7 +187,6 @@ const authSlice = createSlice({
             state.role = action?.payload?.user?.role
         })
         .addCase(login.fulfilled, (state, action) => {
-            console.log(action)
             if(!action?.payload?.user)
                 return
             localStorage.setItem("data", JSON.stringify(action?.payload?.user));
@@ -213,7 +208,6 @@ const authSlice = createSlice({
         })
         .addCase(updateProfile.fulfilled, (state, action) => {
             
-            console.log(action)
             if(action?.payload?.success)
             {
                 localStorage.setItem("data", JSON.stringify(action?.payload?.user));
@@ -221,10 +215,8 @@ const authSlice = createSlice({
                 localStorage.setItem("data", JSON.stringify(action?.payload?.user));
 
             }
-            // console.log(JSON.stringify(action))
         })
         .addCase(logout.fulfilled, (state, action) => {
-            console.log(action)
             if(action?.payload?.success)
             {
                 localStorage.setItem("data", "");
