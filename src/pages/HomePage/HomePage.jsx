@@ -20,55 +20,6 @@ function HomePage() {
 
   useEffect(() => {
     const fetchData = async () => {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       
       console.log("Cart printing in the custom route", dispatch(getCart()));
 

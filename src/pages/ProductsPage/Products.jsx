@@ -78,7 +78,7 @@ function Products({ filter, isButtonVisible, flexWrap, regex }) {
                         <ProductCard product={product} key={product?._id || product?.id || Math.random()} />
                     ))
                 ) : (
-                    <p className="text-gray-500 text-lg">No products available</p>
+                    <></>
                 )}
             </div>
 
