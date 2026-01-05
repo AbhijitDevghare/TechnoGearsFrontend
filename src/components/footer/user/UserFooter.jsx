@@ -22,9 +22,13 @@ function Footer()
                 Cart
             </div>
             </Link>
+
+            <Link to={"/profile"}>
             <div className="flex flex-col justify-evenly items-center gap-1 cursor-pointer font hover:text-bl">                
                 <i className="fa-solid fa-user"></i>Profile
             </div>
+            </Link>
+
             
         </div> 
     </>)

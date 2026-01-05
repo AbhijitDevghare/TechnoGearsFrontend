@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import AddToCart from "../../addtocart/AddToCart"
 import "./NewArrival.css"
 
@@ -12,9 +13,11 @@ function NewArrivals({product})
                     <i className="fa-solid fa-heart"></i>
                 </div>
                <div className="newarrivalcardImageWrapper">
-                 <img src={product.images[0].url} alt=""
-                className=""
-                />
+                 <Link to={`/product/${product.name}`} state={product}>
+                    <img src={product.images[0].url} alt=""
+                    className=""
+                    />
+                 </Link>
 
                </div>
                <div className="newarrivalcardProductInfo">

@@ -11,6 +11,8 @@ import GetLowStockProducts from "../pages/AdminPage/GetLowStockProducts";
 import AdminPage from "../pages/AdminPage/AdminPage";
 import AddProduct from "../pages/AdminPage/addProduct";
 import UpdateProduct from "../pages/AdminPage/UpdateProduct";
+import ProductDetails from "../components/product/productDetails";
+import MyAccount from "../pages/MyAccount/MyAccount";
 // import DeleteProduct from "../pages/AdminPage/deleteProduct";
 
 
@@ -45,6 +47,10 @@ function CustomeRoutes() {
             <Route path='/admin' element={<AdminPage/>}/>
             <Route path='/addProducts' element={<AddProduct/>}/>
             {/* <Route path="/delete" element={<DeleteProduct/>}/> */}
+
+            <Route path='/product/:productName' element={<ProductDetails/>}/>
+            <Route path='/profile' element={<MyAccount/>}/>
+
         </Routes>
     );
 }
