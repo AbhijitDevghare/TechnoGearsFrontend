@@ -1,0 +1,84 @@
+.low-stock-page {
+  min-height: 100vh;
+  background-color: #021d36;
+  padding: 40px 20px;
+}
+
+.low-stock-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #032a4f;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+}
+
+.low-stock-title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 26px;
+  font-weight: 600;
+}
+
+.empty-text {
+  text-align: center;
+  color: #cbd5e1;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #021d36;
+  border: 1px solid #0a3a63;
+  border-radius: 10px;
+  padding: 14px 16px;
+  gap: 16px;
+}
+
+.product-info h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.product-info p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+.stock-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stock-actions input {
+  width: 80px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background-color: #020617;
+  color: #ffffff;
+  text-align: center;
+}
+
+.stock-actions button {
+  padding: 8px 14px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.stock-actions button:hover {
+  background-color: #1e40af;
+}

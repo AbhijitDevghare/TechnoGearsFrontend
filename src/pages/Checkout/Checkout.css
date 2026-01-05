@@ -1,0 +1,146 @@
+.checkout-page {
+  min-height: 100vh;
+  color: #fff;
+  margin-top: 50px;
+}
+
+.checkout-container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 40px 24px;
+}
+
+.checkout-grid {
+  display: flex;
+  /* grid-template-columns: 1fr 1fr; */
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  /* gap: 64px; */
+}
+
+.shipping-section,
+.summary-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-header h2 {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.section-header p {
+  color: #888;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  color: #aaa;
+}
+
+.form-group input {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #444;
+  background: transparent;
+  color: #fff;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.summary-section {
+  border: 1px solid #333;
+  border-radius: 24px;
+  padding: 32px;
+  
+}
+
+
+.product-list {
+  max-height: 350px;
+  overflow-y: auto;
+  margin-bottom: 32px;
+}
+
+.product-item {
+  display: flex;
+  gap: 16px;
+  border: 1px solid #333;
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.product-image {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info h4 {
+  margin: 0;
+}
+
+.product-info p {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.product-total {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+.price-summary div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.free {
+  color: #4ade80;
+}
+
+.grand-total {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.pay-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+}
+
+.secure-text {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+  margin-top: 16px;
+}
