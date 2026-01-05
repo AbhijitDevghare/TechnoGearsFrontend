@@ -1,9 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axiosInstance from "../../helpers/axiosInstance";
 import toast from "react-hot-toast";
+import NewArrivals from "../../components/cards/newarrival/NewArrival";
 
 const initialState = {
   products: [],
+  NewArrivalsProducts:[],
+  popularProducts:[],
   categories: [],
   productsWithId: null,
   status: 'idle', // idle | loading | succeeded | failed
@@ -68,6 +71,7 @@ export const updateProductDetails = createAsyncThunk(
 export const getProducts = createAsyncThunk(
   "product/",
   async ({filter,pageNumber}) => {
+    console.log("PRODUCTS DISPAACH CALL")
     try {
       const res =   axiosInstance.get(`/product`, {
         params: {
@@ -76,12 +80,36 @@ export const getProducts = createAsyncThunk(
         },
       });
 
+
     return (await res).data;
   } catch (error) {
       toast.error(error?.response?.data?.message);
     } 
   }
 );
+
+export const getPopularProducts = createAsyncThunk(
+  "product/getPopularProducts",
+  async ({ filter, pageNumber }, { rejectWithValue }) => {
+    try {
+      console.log("POPULAR PRODUCTS DISPATCH CALL", filter)
+
+      const res = await axiosInstance.get("/product", {
+        params: {
+          pageNumber,
+          filter: JSON.stringify(filter), 
+        },
+      })
+      console.log("POPULAR PRODUCTS DISPATCH CALL response: ",res)
+      return res.data
+    } catch (error) {
+      toast.error(error?.response?.data?.message)
+      return rejectWithValue(error?.response?.data)
+    }
+  }
+)
+
+
 
 
 // Thunk for searching products
@@ -162,13 +190,22 @@ export const fetchLowStockProducts = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const res = await axiosInstance.get("/product/low-stock");
-      console.log("LOW STOCK PRODUCTS : ",res)
       return res.data.products;
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
   }
 );
+
+// export const fetchCategories = createAsyncThunk("products/categories",async()=>{
+//   try {
+//       const res = await axiosInstance.get("/product/categories");
+//       console.log("LOW STOCK PRODUCTS : ",res)
+//       return res.data.products;
+//     } catch (err) {
+//       return rejectWithValue(err.response.data);
+//     }
+// })
 
 
 
@@ -181,8 +218,12 @@ const productSlice = createSlice({
       .addCase(getProducts.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.products = action?.payload;
+        console.log(action)
       })
-      
+      .addCase(getPopularProducts.fulfilled,(state,action)=>{
+        state.status="succeeded";
+        state.popularProducts=action?.payload;
+      })
       .addCase(fetchLowStockProducts.pending, (state) => {
         state.loading = true;
         state.error = null;

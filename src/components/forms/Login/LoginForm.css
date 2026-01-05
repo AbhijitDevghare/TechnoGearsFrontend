@@ -1,0 +1,43 @@
+.loginForm{
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #01162b;
+}
+
+.loginForm form{
+  width: 100%;
+  max-width: 28rem;            /* max-w-md */
+  background-color: #061c33;
+  border-radius: 1.5rem;       /* rounded-3xl */
+  padding: 2.5rem 2rem;        /* px-8 py-10 */
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7);
+}
+
+.loginForm input{
+width: 100%;
+  padding: 0.75rem 1rem;        /* px-4 py-3 */
+  border-radius: 0.75rem;      /* rounded-xl */
+  background-color: #0b243f;
+  color: #ffffff;
+  border: 1px solid #163a5f;
+  outline: none;
+}
+
+.loginForm input::placeholder
+{
+      color: #94a3b8;              /* slate-400 */
+
+}
+
+.loginForm input:focus{
+      border-color: #3b82f6;       /* blue-500 */
+}
+
+.loginForm button{
+    padding: 10px;
+    cursor: pointer;
+}

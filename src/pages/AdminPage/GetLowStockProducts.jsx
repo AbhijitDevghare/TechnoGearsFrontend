@@ -1,11 +1,21 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchLowStockProducts, updateProductStock } from "../../redux/slices/ProductsSlice";
-import HomeLayout from "../../layout/HomeLayout";
+import {
+  fetchLowStockProducts,
+  updateProductStock
+} from "../../redux/slices/ProductsSlice";
+import "./GetLowStockProducts.css";
+import Header from "../../components/header/Header";
+
 
 function GetLowStockProducts() {
+
+      const handleBack = () => window.history.back()
+
   const dispatch = useDispatch();
-  const { lowStockProducts = [] } = useSelector((state) => state?.product || {});
+  const { lowStockProducts = [] } = useSelector(
+    (state) => state?.product || {}
+  );
   const [updatedStocks, setUpdatedStocks] = useState({});
 
   useEffect(() => {
@@ -13,53 +23,51 @@ function GetLowStockProducts() {
   }, [dispatch]);
 
   const handleStockChange = (productId, value) => {
-    setUpdatedStocks((prev) => ({
-      ...prev,
-      [productId]: value,
-    }));
+    setUpdatedStocks((prev) => ({ ...prev, [productId]: value }));
   };
 
   const handleUpdateClick = (productId) => {
-    const newStock = parseInt(updatedStocks[productId]);
+    const newStock = parseInt(updatedStocks[productId], 10);
     if (!isNaN(newStock)) {
       dispatch(updateProductStock({ productId, newStock }));
-      dispatch(fetchLowStockProducts())
+      dispatch(fetchLowStockProducts());
     }
   };
 
   return (
-        <HomeLayout>
 
-<div className="min-h-screen bg-gray-100 p-6 mt-10">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">
-          Low Stock Products
-        </h2>
+      <>
+              <Header showCart={false} showSearch={false} leftType="back"  onBack={handleBack}/>
+
+   
+    <div className="low-stock-page">
+      <div className="low-stock-container">
+        <h2 className="low-stock-title">Low Stock Products</h2>
 
         {lowStockProducts.length === 0 ? (
-          <p className="text-gray-500">No low stock products found.</p>
+          <p className="empty-text">No low stock products found.</p>
         ) : (
-          <div className="space-y-6">
+          <div className="product-list">
             {lowStockProducts.map((product) => (
-              <div
-                key={product._id}
-                className="flex flex-col sm:flex-row sm:items-center justify-between border p-4 rounded-md bg-gray-50 shadow-sm gap-4"
-              >
-                <div>
-                  <h3 className="text-lg font-medium text-gray-700">{product.name}</h3>
-                  <p className="text-sm text-gray-500">Category: {product.category}</p>
+              <div key={product._id} className="product-card">
+                <div className="product-info">
+                  <h3>{product.name}</h3>
+                  <p>Category: {product.category}</p>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="stock-actions">
                   <input
                     type="number"
-                    value={updatedStocks[product._id] ?? product.stock?.available}
-                    onChange={(e) => handleStockChange(product._id, e.target.value)}
-                    className="input input-bordered w-24 text-center"
+                    value={
+                      updatedStocks[product._id] ??
+                      product.stock?.available
+                    }
+                    onChange={(e) =>
+                      handleStockChange(product._id, e.target.value)
+                    }
                   />
                   <button
                     onClick={() => handleUpdateClick(product._id)}
-                    className="btn btn-primary"
                   >
                     Update
                   </button>
@@ -70,9 +78,7 @@ function GetLowStockProducts() {
         )}
       </div>
     </div>
-
-
-        </HomeLayout>
+     </>
   );
 }
 

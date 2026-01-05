@@ -1,0 +1,60 @@
+.add-product-container {
+  max-width: 900px;
+  margin: 100px auto;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  background: #021d36;
+}
+
+.add-product-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.add-product-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.add-product-container label {
+  font-weight: 600;
+}
+
+.add-product-container input,
+.add-product-container textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.add-product-container textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.checkbox-group label {
+  font-weight: normal;
+}
+
+.add-product-container button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #021527;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.add-product-container button:hover {
+}

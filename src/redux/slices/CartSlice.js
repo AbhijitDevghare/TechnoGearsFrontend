@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice, createSelector } from "@reduxjs/toolkit";
 import axiosInstance from "../../helpers/axiosInstance";
 
+import toast from "react-hot-toast";
+
 const initialState = {
   cart: { items: [] },
   loading: false,
@@ -14,34 +16,53 @@ export const getCart = createAsyncThunk("cart/getCart", async () => {
 });
 
 // Add to Cart
-export const addCart = createAsyncThunk("cart/addCart", async (data, { rejectWithValue }) => {
-  try {
-    const res = await axiosInstance.post("cart/add", data);
-    return res.data;
-  } catch (error) {
-    return rejectWithValue(error.response?.data || error.message);
+
+
+// Add to Cart
+export const addCart = createAsyncThunk(
+  "cart/addCart",
+  async (data, { rejectWithValue }) => {
+    try {
+      const res = await axiosInstance.post("cart/add", data);
+      toast.success("Added to cart");
+      return res.data;
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Failed to add to cart");
+      return rejectWithValue(error.response?.data || error.message);
+    }
   }
-});
+);
 
 // Remove from Cart
-export const removeCart = createAsyncThunk("cart/removeCart", async (itemId, { rejectWithValue }) => {
-  try {
-    const res = await axiosInstance.put(`cart/remove/${itemId}`);
-    return res.data.cart;
-  } catch (error) {
-    return rejectWithValue(error.response?.data || error.message);
+export const removeCart = createAsyncThunk(
+  "cart/removeCart",
+  async (itemId, { rejectWithValue }) => {
+    try {
+      const res = await axiosInstance.put(`cart/remove/${itemId}`);
+      toast.success("Removed from cart");
+      return res.data.cart;
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Failed to remove item");
+      return rejectWithValue(error.response?.data || error.message);
+    }
   }
-});
+);
 
 // Update Cart
-export const updateCart = createAsyncThunk("cart/updateCart", async ({ itemId, data }, { rejectWithValue }) => {
-  try {
-    const res = await axiosInstance.put(`cart/update/${itemId}`, data);
-    return res.data.cart;
-  } catch (error) {
-    return rejectWithValue(error.response?.data || error.message);
+export const updateCart = createAsyncThunk(
+  "cart/updateCart",
+  async ({ itemId, data }, { rejectWithValue }) => {
+    try {
+      const res = await axiosInstance.put(`cart/update/${itemId}`, data);
+      toast.success("Cart updated");
+      return res.data.cart;
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Failed to update cart");
+      return rejectWithValue(error.response?.data || error.message);
+    }
   }
-});
+);
+
 
 const cartSlice = createSlice({
   name: "cart",

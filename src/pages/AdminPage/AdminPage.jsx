@@ -1,61 +1,60 @@
 import { Link } from "react-router-dom";
-import HomeLayout from "../../layout/HomeLayout";
+import "./AdminPage.css";
+import Header from "../../components/header/Header";
+
 
 function AdminPage() {
-    return (
-        <HomeLayout>
-            
-            <div className="p-6 mt-12">
+    const handleBack = () => window.history.back()
 
-                <h1 className="text-2xl font-bold mb-4">Admin Options</h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div className="bg-white shadow-lg rounded-lg p-4">
-                        <h2 className="text-xl font-semibold mb-2">Manage Users</h2>
-                        <p className="mb-4">View and manage user accounts, roles, and permissions.</p>
-                        <button className="btn btn-primary">Go to User Management</button>
-                    </div>
+  return (
+    <>
+            <Header showCart={false} showSearch={false} leftType="back"  onBack={handleBack}/>
 
+    
+    <div className="admin-page">
+      <h1 className="admin-title">Admin Options</h1>
 
+      <div className="admin-grid">
+        <div className="admin-card">
+          <h2>Manage Users</h2>
+          <p>View and manage user accounts, roles, and permissions.</p>
+          <button className="admin-btn">Go to User Management</button>
+        </div>
 
-                    <div className="bg-white shadow-lg rounded-lg p-4">
-                        <h2 className="text-xl font-semibold mb-2">Check Low Stock Products</h2>
-                        <p className="mb-4"></p>
-                        <Link to={"/low-stock-products"}>
-                        <button className="btn btn-primary">Low stock products</button>
+        <div className="admin-card">
+          <h2>Check Low Stock Products</h2>
+          <Link to="/low-stock-products">
+            <button className="admin-btn">Low Stock Products</button>
+          </Link>
+        </div>
 
-                        </Link>
-                    </div>
+        <div className="admin-card">
+          <h2>Add New Products</h2>
+          <Link to="/addProducts">
+            <button className="admin-btn">Add Products</button>
+          </Link>
+        </div>
 
-                    <div className="bg-white shadow-lg rounded-lg p-4">
-                        <h2 className="text-xl font-semibold mb-2">Add new products</h2>
-                        <p className="mb-4"></p>
-                        <Link to={"/addProducts"}>
-                        <button className="btn btn-primary">Go to add products</button>
-                        </Link>
-                    </div>
+        <div className="admin-card">
+          <h2>Delete Products</h2>
+          <p>Delete products</p>
+          <Link to="/deleteProduct">
+            <button className="admin-btn">Delete Products</button>
+          </Link>
+        </div>
 
-                    
-                    <div className="bg-white shadow-lg rounded-lg p-4">
-                        <h2 className="text-xl font-semibold mb-2">Delete products</h2>
-                        <p className="mb-4">Delete products</p>
-                        <Link to={"/deleteProduct"}>
-                        <button className="btn btn-primary">Go to add products</button>
-                        </Link>
-                    </div>
+        <div className="admin-card">
+          <h2>Update Products</h2>
+          <p>Update products</p>
+          <Link to="/updateProduct">
+            <button className="admin-btn">Update Products</button>
+          </Link>
+        </div>
+      </div>
+    </div>
 
-                    <div className="bg-white shadow-lg rounded-lg p-4">
-                        <h2 className="text-xl font-semibold mb-2">Update    products</h2>
-                        <p className="mb-4">Update products</p>
-                        <Link to={`/updateProduct`}>
-                        <button className="btn btn-primary">Go to add products</button>
-                        </Link>
-                    </div>
-
-                    {/* Add more sections as needed */}
-                </div>
-            </div>
-        </HomeLayout>
-    );
+    </>
+  );
 }
 
 export default AdminPage;

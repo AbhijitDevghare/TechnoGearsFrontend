@@ -1,6 +1,75 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+@import "tailwindcss";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  /* background: rgb(2, 4, 35); */
+    background: #01162b;
+  width: 100%;
+  height: 100%;
+  color: white;
+  overflow-x: hidden;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.categoryCaraousel
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+  /* background-color: #eee; */
+  width: 100%;
+  height: 50px;
+  overflow-x: scroll; /* Add the ability to scroll */
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-bottom: 50px;
+}
+
+.categoryCaraousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.categoryCaraousel {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.categoryCarouselButton{
+  background-color: #02305a; 
+  /* color: black;       bg-[#040745] */
+  padding: 15px 15px;                  /* p-10 */
+  height: 20px;                     /* h-[25px] */
+  display: flex;                    /* flex */
+  align-items: center;              /* items-center */
+  justify-content: center;          /* justify-center */
+  border-radius: 0.9rem;           /* rounded-xl */
+  font-size: 0.875rem;              /* text-sm */
+  font-weight: 600;                 /* font-semibold */
+  cursor: pointer;                  /* cursor-pointer */
+  transition: all 0.3s ease-out; 
+}
+
+.categoryCarouselButton:hover{
+    background-color: #070fa4;        /* hover:bg-white */
+}
+
+
+.herocarousel
+{
+  display: flex;
+  max-width:100vw;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+}
