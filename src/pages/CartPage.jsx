@@ -7,10 +7,10 @@ import CartItem from "../components/cart/Cart";
 
 const CartPage = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch();w
   const  cart  = useSelector((state) => state.cart?.cart);
 
-  // const [updatedCart,setUpdatedCart] = useState({})
+  // const [updatedCart,setUpadatedCart] = useState({})
 
   useEffect(() => {
     dispatch(getCart());

@@ -21,7 +21,7 @@ function Authentication() {
             authType === "register" ? 
             "Create an Account" : 
             ""
-            }
+            } 
 
             {
                  authType === "login" ? 
