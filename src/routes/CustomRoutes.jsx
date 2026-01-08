@@ -13,6 +13,7 @@ import AddProduct from "../pages/AdminPage/addProduct";
 import UpdateProduct from "../pages/AdminPage/UpdateProduct";
 import ProductDetails from "../components/product/productDetails";
 import MyAccount from "../pages/MyAccount/MyAccount";
+import OrdersPage from "../pages/OrdersPage/OrdersPage";
 // import DeleteProduct from "../pages/AdminPage/deleteProduct";
 
 
@@ -32,16 +33,11 @@ function CustomeRoutes() {
             <Route path="/cart" element={<CartPage/>}/>
             <Route path="/auth/:authType" element={<AuthenticationPage/>} />
             <Route path="/checkout" element={<CheckoutPage/>}/>
-            {/* <Route path="/auth/:authType" element={<Authentication />} />
-            <Route path="/contact" element={<ContactUsPage/>} />
-            <Route path="/profile" element={<MyAccount/>} />
-            <Route path='/addProducts' element={<AddProduct/>}/>
-            <Route path='/product/:productName' element={<ProductDescription/>}/>
-            <Route path='products/product/:productName' element={<ProductDescription/>}/>
             <Route path='/orders' element={<OrdersPage/>}/>
 
 
             {/* ADMIN ROUTES */}
+
             <Route path="/low-stock-products" element={<GetLowStockProducts/>} />
             <Route path="/updateProduct" element={<UpdateProduct/>} />
             <Route path='/admin' element={<AdminPage/>}/>

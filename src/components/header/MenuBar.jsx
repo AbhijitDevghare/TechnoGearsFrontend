@@ -51,6 +51,9 @@ function MenuBar() {
           <Link to="/cart" onClick={toggleMenu} className="px-6 py-2 rounded-md hover:bg-white/10 transition">
             Cart
           </Link>
+          <Link to="/orders" onClick={toggleMenu} className="px-6 py-2 rounded-md hover:bg-white/10 transition">
+            Orders
+          </Link>
           <Link to="/about" onClick={toggleMenu} className="px-6 py-2 rounded-md hover:bg-white/10 transition">
             About
           </Link>

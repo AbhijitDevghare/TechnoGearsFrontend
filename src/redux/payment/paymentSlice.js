@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import axiosInstance from "../../helpers/axiosInstance";
 
 // CREATE ORDER THUNK
 export const createOrder = createAsyncThunk(
   "payment/createOrder",
   async (amount, { rejectWithValue }) => {
     try {
-      const res = await axios.post("/api/payment/create-order", { amount });
+      const res = await axiosInstance.post("/payment/create-order", { amount });
       return res.data.order;
     } catch (err) {
       return rejectWithValue(err.response.data);
@@ -19,7 +19,7 @@ export const verifyPayment = createAsyncThunk(
   "payment/verifyPayment",
   async (paymentData, { rejectWithValue }) => {
     try {
-      const res = await axios.post("/api/payment/verify-payment", paymentData);
+      const res = await axiosInstance.post("/payment/verify-payment", paymentData);
       return res.data;
     } catch (err) {
       return rejectWithValue(err.response.data);
