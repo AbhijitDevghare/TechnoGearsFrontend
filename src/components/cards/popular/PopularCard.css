@@ -13,7 +13,7 @@
   border-radius: 20px;
   padding: 14px;
   background: linear-gradient(135deg, #0a3d6b, #021c33);
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
   cursor: pointer;
   transition: all 0.35s ease;
@@ -21,8 +21,8 @@
 
 /* Glow effect */
 .popular-card::before {
-  content: "";
-  position: absolute;
+  /* content: ""; */
+  /* position: absolute; */
   inset: 0;
   border-radius: 20px;
   padding: 1px;

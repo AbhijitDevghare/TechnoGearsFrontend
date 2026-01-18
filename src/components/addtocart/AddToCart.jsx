@@ -19,6 +19,7 @@ function AddToCart({ product }) {
   }, [isAddedFromStore]);
 
   const handleAddToCart = () => {
+    console.log(product)
     if (!product?._id || disabled) return;
     setDisabled(true); // instantly disable
     dispatch(addCart({ productId: product._id, quantity: 1 }));
@@ -29,6 +30,7 @@ function AddToCart({ product }) {
 
   return (
     <div>
+      {/* {console.log(product)} */}
       <button
         className={`add-to-cart ${
           isButtonDisabled ? "bg-gray-500 cursor-not-allowed" : "bg-green-600"

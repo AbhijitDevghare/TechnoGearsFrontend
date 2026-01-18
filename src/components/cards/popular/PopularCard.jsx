@@ -5,6 +5,7 @@ import "./PopularCard.css";
 
 function PopularCard({ product }) {
   return (
+    <>
     <div className="popular-card">
       <div className="popular-card-image">
         <Link to={`/product/${product.name}`} state={product}>
@@ -22,11 +23,14 @@ function PopularCard({ product }) {
  
       </div>
       <div className="bg-blue-500 rounded-4xl w-[30px] h-[30px] flex justify-center items-center cursor-pointer">
-                            <AddToCart product={product}/>
-    </div>
+                        <AddToCart product={product}/>
+
+      </div>
 
     
     </div>
+
+</>
   );
 }
 
